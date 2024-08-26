@@ -1,0 +1,111 @@
+{
+    "lines": {
+        "BCF DIV": {
+            "Power (KWH) Line-1": {
+                "Machine": {
+                    "meter_position": "6/14",
+                    "constant": "6/152",
+                    "running_hrs": "tag_1",
+                    "param1": "tag_2",
+                    "param2": "tag_3",
+                    "param3": "tag_4"
+                },
+                "Chiller": {
+                    "Chiller_tag_id": "tag_5"
+                },
+                "Air": {
+                    "Air_tag_id": "tag_6"
+                },
+                "Dryer": {
+                    "Dryer_tag_id": "tag_7"
+                }
+            },
+            "Power (KWH) Line-4A": {
+                "Machine": {
+                    "meter_position": "8/44",
+                    "constant": "8/32",
+                    "running_hrs": "tag_8",
+                    "param1": "tag_9",
+                    "param2": "tag_10",
+                    "param3": "tag_11"
+                },
+                "Chiller": {
+                    "Chiller_tag_id": "tag_12"
+                },
+                "Air": {
+                    "Air_tag_id": "tag_13"
+                },
+                "Dryer": {
+                    "Dryer_tag_id": "tag_14"
+                }
+            }
+        },
+        "TEX DIV": {
+            "Power (KWH) Line-1": {
+                "Machine": {
+                    "meter_position": "6/14",
+                    "constant": "6/152",
+                    "running_hrs": "tag_1",
+                    "param1": "tag_2",
+                    "param2": "tag_3",
+                    "param3": "tag_4"
+                },
+                "Chiller": {
+                    "Chiller_tag_id": "tag_5"
+                },
+                "Air": {
+                    "Air_tag_id": "tag_6"
+                },
+                "Dryer": {
+                    "Dryer_tag_id": "tag_7"
+                }
+            },
+            "Power (KWH) Line-4A": {
+                "Machine": {
+                    "meter_position": "8/44",
+                    "constant": "8/32",
+                    "running_hrs": "tag_8",
+                    "param1": "tag_9",
+                    "param2": "tag_10",
+                    "param3": "tag_11"
+                },
+                "Chiller": {
+                    "Chiller_tag_id": "tag_12"
+                },
+                "Air": {
+                    "Air_tag_id": "tag_13"
+                },
+                "Dryer": {
+                    "Dryer_tag_id": "tag_14"
+                }
+            }
+        }
+    },
+    "formulas": {
+        "Machine": "param1*(meter_position)*(running_hrs/24) + param2 + param3*constant",
+        "Uty_Aux": "(Chiller+Air)*(172/1000)",
+        "Lighting_Losses": "(Machine + Chiller + Air + Uty_Aux+ Dryer)*(25/1000)",
+        "TOTAL": "Machine + Chiller + Air + Uty_Aux + Lighting_Losses + Dryer"
+    },
+    "params": [
+        "Machine",
+        "Chiller",
+        "Air",
+        "Uty.Aux.",
+        "Lighting & Losses",
+        "Dryer",
+        "TOTAL"
+    ],
+    "static_params": {
+        "Total Plant Consumption": "tag_15",
+        "DNHPDCL Consumption": "tag_16",
+        "Solar Power": "tag_17",
+        "DG Generation": "tag_18",
+        "Total Consumption": "tag_19",
+        "HSD Consumption": "tag_20"
+    },
+    "report_type": "daily",
+    "start_date": "08-01-2024 00:00:00",
+    "end_date": "08-31-2024 00:00:00",
+    "tz": "Asia/Calcutta"
+}
