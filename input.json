@@ -1,0 +1,67 @@
+{
+  "lines": {
+    "BCF DIV" : {
+    "Power (KWH) Line-1": {
+      "Machine": {
+        "meter_position": "6/14",
+        "constant": "6/152",
+        "running_hrs": "tag_",
+        "param1": "tag_",
+        "param2": "tag_",
+        "param3": "tag_"
+      },
+      "Chiller": {
+        "Chiller_tag_id": "tag_"
+      },
+      "Air": {
+        "Air_tag_id": "tag_"
+      },
+      "Dryer": {
+        "Dryer_tag_id": "tag_"
+      }
+    },
+    "Power (KWH) Line-4A": {
+      "Machine": {
+        "meter_position": "8/44",
+        "constant": "8/32",
+        "running_hrs": "tag_",
+        "param1": "tag_",
+        "param2": "tag_",
+        "param3": "tag_"
+      },
+      "Chiller": {
+        "Chiller_tag_id": ""
+      },
+      "Air": {
+        "Air_tag_id": ""
+      },
+      "Dryer": {
+        "Dryer_tag_id": ""
+      }
+    }
+  }},
+  "formulas": {
+    "Machine": "param1*(meter_position)*(running_hrs/24) + param2 + param3*constant",
+    "Uty.Aux.": "(Chiller + Air)*0.172",
+    "Lighting & Losses": "(Machine + Chiller + Air + Uty.Aux.+ Dryer)*0.025",
+    "TOTAL": "Machine + Chiller + Air + Uty.Aux. + Lighting & Losses + Dryer"
+  },
+  "params": [
+    "Machine",
+    "Chiller",
+    "Air",
+    "Uty.Aux.",
+    "Lighting & Losses",
+    "Dryer",
+    "TOTAL"
+  ],
+  "constants": ["meter_position","constant"],
+  "static_params": {
+    "Total Plant Consumption": "tag_",
+    "DNHPDCL Consumption": "tag_",
+    "Solar Power" :"tag_",
+    "DG Generation" : "tag_",
+    "Total Consumption" :"tag_",
+    "HSD Consumption": "tag_"
+  }
+}
